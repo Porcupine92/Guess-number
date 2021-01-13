@@ -9,16 +9,21 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function store(Request $request): View
+    public function store(Request $request)
     {
+        // $data = '{ "name": "John" }';
 
+        // return response($data)
+        //     ->header('Content-Type', 'application/json');
 
         $data = $request;
-        header('Content-Type: application/json');
-        $data = json_encode($data);
+        // header('Content-Type: application/json');
+        // $data = json_encode($data);
 
         dump($data);
-        return view('newUser');
+        return view('newUser', [
+            'data' => $data
+        ]);
     }
 
     public function create(Request $request)
