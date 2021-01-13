@@ -14,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/new');
 });
 
+Route::group([
+    'namespace' => 'Game'
+], function () {
+
+    Route::get('/new', 'UserController')
+        ->name('user');
+
+    Route::get('/guess', 'GameController')
+        ->name('game');
+
+    Route::get('/scores', 'ScoresController')
+        ->name('scores');
+});
