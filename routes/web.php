@@ -21,8 +21,14 @@ Route::group([
     'namespace' => 'Game'
 ], function () {
 
-    Route::get('/new', 'UserController')
-        ->name('user');
+    Route::get('/new', 'UserController@store')
+        ->name('user.store');
+
+    Route::post('/new', 'UserController@create')
+        ->name('user.create');
+
+    Route::get('/profile/{id}', 'UserController@profile')
+        ->name('user.profile');
 
     Route::get('/guess', 'GameController')
         ->name('game');
