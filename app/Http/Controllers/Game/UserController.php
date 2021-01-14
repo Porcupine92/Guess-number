@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Game;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\NewGameRequest;
 use App\Models\Game;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;

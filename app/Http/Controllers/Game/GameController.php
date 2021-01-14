@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Game;
 
 use App\Http\Controllers\Controller;
 use App\Models\Game;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -31,6 +30,10 @@ class GameController extends Controller
         ];
 
         if (isset($request->number)) {
+
+            if (!is_numeric($request->number)) {
+                return response()->json(['error' => 'Try to write a number']);
+            }
 
             $number = $request->number;
 
